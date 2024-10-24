@@ -20,7 +20,7 @@ export default function ForgotPassword() {
             className="w-full rounded-2xl"
           />
         </div>
-        <div className="w-full md:w-[67%] lw:w-[40%] lg:ml-20">
+        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
           <form>
             <input
               type="email"
@@ -34,7 +34,10 @@ export default function ForgotPassword() {
             <div className="flex justify-between">
               <p className="text-black transition duration-200 ease-in-out ml-1">
                 Don't have a account?
-                <Link className="text-red-600" to="/sign-up">
+                <Link
+                  className="text-red-600 hover:text-red-700 transition duration-200 easy-in-out ml-1"
+                  to="/sign-up"
+                >
                   Register
                 </Link>
               </p>
