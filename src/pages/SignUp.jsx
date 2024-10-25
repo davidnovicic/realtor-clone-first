@@ -1,4 +1,4 @@
-import { Profiler, useState } from "react";
+import { useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
