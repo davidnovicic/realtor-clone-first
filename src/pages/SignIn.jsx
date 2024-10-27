@@ -31,6 +31,7 @@ export default function SignIn() {
         email,
         password
       );
+      console.log(userCredential);
       if (userCredential.user) {
         navigate("/");
       }
