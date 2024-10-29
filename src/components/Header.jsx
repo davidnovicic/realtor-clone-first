@@ -28,7 +28,7 @@ export default function Header() {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src="https://www.seekpng.com/png/small/125-1255671_south-shore-computer-repair-logo-computer-repair-logo.png"
+            src="https://helium.privateproperty.co.za/live-za-images/offices/13501/image/4567d28776ed43ba88a9008f058c6904_osm.jpg"
             alt=""
             className="h-25 cursor-pointer"
             onClick={() => navigate("/")}
