@@ -1,23 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
-import { updateDoc, doc } from "firebase/firestore";
+import {
+  updateDoc,
+  doc,
+  collection,
+  query,
+  where,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
 
 import { FaHome } from "react-icons/fa";
+import ListingItem from "../components/ListingItem";
 
 export default function Profile() {
-  const navigate = useNavigate();
   const auth = getAuth();
-
+  const navigate = useNavigate();
   const [changeDetail, setChangeDetail] = useState(false);
-
+  const [listings, setListings] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
   });
-
   const { name, email } = formData;
 
   function onLogout() {
@@ -52,6 +60,29 @@ export default function Profile() {
       toast.error("Could not update profile detail ");
     }
   }
+
+  useEffect(() => {
+    async function fetchUserListings() {
+      setLoading(true);
+      const listingRef = collection(db, "listings");
+      const q = query(
+        listingRef,
+        where("userRef", "==", auth.currentUser.uid),
+        orderBy("timestamp", "desc")
+      );
+      const querySnap = await getDocs(q);
+      let listings = [];
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+      setListings(listings);
+      setLoading(false);
+    }
+    fetchUserListings();
+  }, [auth.currentUser.uid]);
 
   return (
     <>
@@ -116,6 +147,23 @@ export default function Profile() {
           </button>
         </div>
       </section>
+
+      <div className="max-w-6xl px-3 mt-6 mx-auto">
+        {!loading && listings.length > 0 && (
+          <>
+            <h2 className="text-2xl text-center font-semibold">My Listings</h2>
+            <ul>
+              {listings.map((listing) => (
+                <ListingItem
+                  key={listing.id}
+                  id={listing.id}
+                  listing={listing.data}
+                />
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </>
   );
 }
