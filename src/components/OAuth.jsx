@@ -23,7 +23,7 @@ export default function OAuth() {
       const docSnap = await getDoc(docRef);
 
       if (!docSnap.exists()) {
-        await setDoc(docRef, {
+        await setDoc(docRef, { 
           name: user.displayName,
           email: user.email,
           timestamp: serverTimestamp(),

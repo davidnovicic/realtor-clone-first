@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import Spinner, { spinner } from "../components/Spinner";
+import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import {
   getStorage,
@@ -89,7 +89,7 @@ export default function CreateListing() {
       toast.error("maximum 6 images are allowed ");
       return;
     }
-    let geoLocation = {};
+    let geolocation = {};
     let location;
     if (geolocationEnabled) {
       const response = await fetch(
@@ -97,8 +97,8 @@ export default function CreateListing() {
       );
       const data = await response.json();
       console.log(data);
-      geoLocation.lat = data.results[0]?.geometry.location.lat ?? 0;
-      geoLocation.lng = data.results[0]?.geometry.location.lng ?? 0;
+      geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
+      geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
 
       location = data.status === "ZERO_RESULTS" && undefined;
 
@@ -107,8 +107,8 @@ export default function CreateListing() {
         toast.error("please enter a correct address");
       }
     } else {
-      geoLocation.lat = latitude;
-      geoLocation.lng = longitude;
+      geolocation.lat = latitude;
+      geolocation.lng = longitude;
     }
 
     async function storeImages(image) {
@@ -159,7 +159,7 @@ export default function CreateListing() {
     const formDataCopy = {
       ...formData,
       imgUrls,
-      geoLocation,
+      geolocation,
       timestamp: serverTimestamp(),
       userRef: auth.currentUser.uid,
     };

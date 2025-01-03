@@ -9,12 +9,12 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA-KjSRmlp6Mwt--KTpO9y3U0eE1OdjQHU",
-  authDomain: "realtor-clone-service.firebaseapp.com",
-  projectId: "realtor-clone-service",
-  storageBucket: "realtor-clone-service.appspot.com",
-  messagingSenderId: "667830268284",
-  appId: "1:667830268284:web:964a1d2611423fc83374f9",
+  apiKey: "AIzaSyBjLEr3aCGBe19T1H1f8ul2FMNOZe1Q2ZE",
+  authDomain: "realtor-clone-react-9ae5f.firebaseapp.com",
+  projectId: "realtor-clone-react-9ae5f",
+  storageBucket: "realtor-clone-react-9ae5f.firebasestorage.app",
+  messagingSenderId: "620936116188",
+  appId: "1:620936116188:web:97cb99387511d9a5e8c119",
 };
 
 // Initialize Firebase
