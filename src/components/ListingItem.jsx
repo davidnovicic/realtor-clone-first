@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Moment from "react-moment"
 import { MdLocationOn } from "react-icons/md";
+import { FaTrash } from "react-icons/fa";
+import { MdModeEdit } from "react-icons/md";
 
 
-export default function ListingItem({ listing, id }) {
+export default function ListingItem({ listing, id, onEdit, onDelete }) {
   return (
     
     <li className="relative bg-white flex flex-col justify-between items-center
@@ -41,10 +43,23 @@ export default function ListingItem({ listing, id }) {
                 {listing.bathrooms > 1 ? `${listing.bathrooms} Bathrooms` : `1 Bathroom`}
               </p>
             </div>
+            
           </div>
         </div>      
     </Link>
-  </li>   
+      {onDelete && (
+        <FaTrash className="absolute bottom-2 right-2 h-[14px] text-red-500 cursor-pointer" onClick={() => onDelete(listing.id)} />
+      )}
+     
+      {onEdit && (
+        <MdModeEdit className="absolute bottom-2 right-10 h-4 cursor-pointer" onClick={() => onEdit(listing.id) } /> 
+
+      )}
+    
+    </li>   
   )
 }
+
+
+
 
