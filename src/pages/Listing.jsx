@@ -86,14 +86,7 @@ export default function Listing() {
       <div className="m-4 h-[300px] flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5">
         <div className=" w-full ">
           <p className="items-center text-2xl font-bold mb-3 text-blue-900">
-            {listing.name} - ${" "}
-            {listing.offer
-              ? listing.discountedPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              : listing.regularPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {listing.name} - $ {listing.regularPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" ? " / month" : ""}
           </p>
           <p className="flex items-center mt-6 mb-3 font-semibold">
@@ -105,8 +98,8 @@ export default function Listing() {
               {listing.type === "rent" ? "Rent" : "Sale"}
             </p>
             {listing.offer && (
-              <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
-                ${+listing.regularPrice - +listing.discountedPrice} discount
+              <p className="flex-none w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
+               Discount price ${+listing.discountedPrice} 
               </p>
             )}
           </div>

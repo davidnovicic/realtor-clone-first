@@ -65,7 +65,7 @@ export default function Slider() {
             ></div>
             <p className="text-white absolute left-1 top-3 text-lg max-w-[90%] bg-[#457b9d] shadow-lg opacity-90 p-4 rounded-lg"> {data.name} </p>
             <p className="text-white absolute left-1 bottom-3 text-lg max-w-[90%] bg-red-500 shadow-lg opacity-90 p-4 rounded-lg"> 
-             $ {data.type === "rent" ? (`${data.regularPrice} / month`) : (`${data.    discountedPrice} Discount`)}
+             $ {data.type === "rent" ? (`${data.regularPrice} / month`) : (`${data.discountedPrice} discounted price`)}
             </p>
 
           </SwiperSlide>          
