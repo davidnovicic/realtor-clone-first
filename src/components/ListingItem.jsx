@@ -9,9 +9,9 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
   return (
     
     <li className="relative bg-white flex flex-col justify-between items-center
-    shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
-      <Link className="content" to={`/category/${listing.type}/${id}`}>
-        <img className="h-[170px] w-full object-cover hover:scale-105 transition-scale duration-200 ease-in" loading="lazy" src={listing.imgUrls[0]}/>
+    shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px] mb-7">
+      <Link className="contents" to={`/category/${listing.type}/${id}`}>
+        <img className="h-[170px] w-full object-cover hover:scale-105 transition-scale duration-200 ease-in-out" loading="lazy" src={listing.imgUrls[0]}/>
         <Moment className="absolute top-2 left-2 bg-[#3377cc] text-white uppercase text-sm font-semibold rounded-md px-2 py-1 shadow-lg" fromNow> 
           {listing.timestamp?.toDate()}
         </Moment>           
@@ -35,11 +35,11 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
               </p>
           <div className="flex items-center mt-[10px] space-x-3"> 
             <div className="flex items-center space-x-1 "> 
-              <p className="font-bold text-sm">
+              <p className="font-semibold text-xs">
               {listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : ` 1 Bed`}</p>
             </div>
             <div className="flex items-center space-x-1"> 
-              <p className="font-bold text-sm"> 
+              <p className="font-semibold text-xs"> 
                 {listing.bathrooms > 1 ? `${listing.bathrooms} Bathrooms` : `1 Bathroom`}
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
       )}
      
       {onEdit && (
-        <MdModeEdit className="absolute bottom-2 right-10 h-4 cursor-pointer" onClick={() => onEdit(listing.id) } /> 
+        <MdModeEdit className="absolute bottom-2 right-8 h-4 cursor-pointer" onClick={() => onEdit(listing.id) } /> 
 
       )}
     

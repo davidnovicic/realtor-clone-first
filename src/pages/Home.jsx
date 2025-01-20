@@ -90,9 +90,9 @@ export default function Home() {
       <div className="max-w-6xl pt-4 mx-auto space-y-6"> 
         {offerListings && offerListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 mb-6 text-2xl font-semibold"> Recent Offers </h2>
+            <h2 className="px-3 mb-2 text-3xl font-semibold mt-6"> Recent Offers </h2>
             <Link to="/offers"> 
-            <p className="px-3 text-blue-600"> More offers </p>
+            <p className="px-3 text-blue-500 text-xl mb-6"> More offers </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
               {offerListings.map((listing) => (
@@ -108,12 +108,12 @@ export default function Home() {
       </div>
       <div className="max-w-6xl mx-auto pt-4">
         {forRent && forRent.length > 0 && (
-          <div className="m-2 mb-6"> 
-            <h2 className="px-3 text-2xl font-semibold mb-6"> 
+          <div className="m-2 mb-2"> 
+            <h2 className="px-3 text-2xl font-semibold mb-2"> 
               Recent places for Rent
             </h2>
-            <Link> 
-            <p className="text-blue-500 text-small px-3"> More places for Rent </p>
+            <Link to="/category/rent"> 
+            <p className="text-blue-500 text-xl px-3 mb-6"> More places for Rent </p>
             </Link>
             <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
               {forRent.map((listing) => (
@@ -130,9 +130,9 @@ export default function Home() {
       <div className="max-w-6xl pt-4 mx-auto "> 
         {forSale && forSale.length > 0 && (
           <div className="m-2 mb-6"> 
-            <h2 className="px-3 text-2xl text-semibold mb-6"> Recent places for sale </h2>
-            <Link to={"/sale"}> 
-              <p className="text-blue-500 text-small px-3"> More places for sale </p>
+            <h2 className="px-3 text-2xl text-semibold mb-2"> Recent places for sale </h2>
+            <Link to={"/category/sell"}> 
+              <p className="text-blue-500 text-xl px-3 mb-6"> More places for sale </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
               {forSale.map((listing) => (

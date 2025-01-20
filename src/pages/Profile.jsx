@@ -170,7 +170,7 @@ export default function Profile() {
         </div>
       </section>
 
-      <div className="max-w-6xl px-3 mt-6 mx-auto">
+      <div className="max-w-6xl px-10 mt-6 mx-auto">
         {!loading && listings.length > 0 && (
           <>
             <h2 className="mt-12 mb-12 text-2xl text-center font-semibold">My Listings</h2>
